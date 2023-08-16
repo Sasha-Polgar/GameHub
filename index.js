@@ -18,25 +18,25 @@ app.locals.games = games;
 * Définitions des routes
 *==============================*/
 app.get("/",(req, res) => {
-    res.render("index")
-})
-
-app.get("/game/fourchette", (req, res) => {
-    res.render("fourchette")
-})
-
-app.get("/game/diceRoller", (req, res) => {
-    res.render("diceRoller", {css:true})
+    res.render("index");
 });
 
-// app.get("/game/:nomDuJeu", (req, res) => {
-//     let gameUrl = req.params.nomDuJeu;
-//     let findGame = games.find((game) => game.name === nomDuJeu);
-//     if(!findGame) {
-//         res.status(404);
-//     }
-//     res.render({game:findGame})
-// })
+// app.get("/game/fourchette", (req, res) => {
+//     res.render("fourchette");
+// });
+
+// app.get("/game/diceRoller", (req, res) => {
+//     res.render("diceRoller", {css:true});
+// });
+
+app.get("/game/:nomDuJeu", (req, res) => {
+    let gameUrl = req.params.nomDuJeu;
+    let findGame = games.find((game) => game.name === gameUrl);
+    if(!findGame) {
+        res.status(404);
+    }
+    res.render("game", {game:findGame})
+})
 
 /*============================
 * Lancement du serveur

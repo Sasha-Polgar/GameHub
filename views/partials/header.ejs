@@ -6,8 +6,8 @@
     <title>GameHub</title>
     <link rel="stylesheet" href="/css/style.css">
 
-    <% if (locals.css) {%>
-    <link rel="stylesheet" href="/css/diceRoller.css">
+    <% if (locals.game) {%>
+    <link rel="stylesheet" href="/css/<%=game.cssFile%>">
     <%}%>
   </head>
 
