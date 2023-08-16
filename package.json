@@ -1,0 +1,25 @@
+{
+  "name": "S03E06-atelier-duo-GameHub-Sasha-Polgar",
+  "version": "1.0.0",
+  "description": "Bon, on a quelques jeux qui traînent, c'est cool ! Mais c'est le bazar !",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Cheesecake/S03E06-atelier-duo-GameHub-Sasha-Polgar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Cheesecake/S03E06-atelier-duo-GameHub-Sasha-Polgar/issues"
+  },
+  "homepage": "https://github.com/O-clock-Cheesecake/S03E06-atelier-duo-GameHub-Sasha-Polgar#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
