@@ -6,7 +6,7 @@
     <title>GameHub</title>
     <link rel="stylesheet" href="/css/style.css">
 
-    <% if (locals.game) {%>
+    <% if (locals.game && game.cssFile != null) {%>
     <link rel="stylesheet" href="/css/<%=game.cssFile%>">
     <%}%>
   </head>
