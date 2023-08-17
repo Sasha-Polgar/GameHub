@@ -1,10 +1,13 @@
 <%- include ("partials/header") %>
 
-<% if(game) {%>
-<%- include(game.name)%>
-<%} else {%>
-    <div>Le jeu que vous recherchez n'existe pas</div>
-<%}%>
+
+<main>
+
+    <% if(locals.game) {%>
+        <%- include(game.name)%>  
+    <%}%>
+            
+</main>
+
 
 <%- include("partials/footer") %>
-
