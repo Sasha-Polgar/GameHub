@@ -3,6 +3,7 @@
 *==============================*/
 const express = require("express");
 const games = require("./games.json");
+const os = require("os");
 
 /*============================
 * Configuration d'express
@@ -18,6 +19,17 @@ app.use(express.static("public"));
 // On envoi dans l'objet locals, notre tableau de jeux,
 // pour ne pas avoir à l'nvoyer dans locals depuis toutes nos routes
 app.locals.games = games;
+
+/*============================
+* Middleware de journalisation
+*==============================*/
+// app.use((req, res, next) => {
+//     const ip = os.networkInterfaces();
+//     console.log(ip, req.url)
+//     next()
+// })
+
+
 
 /*============================
 * Définitions des routes
@@ -44,10 +56,10 @@ app.get("/game/:nomDuJeu", (req, res) => {
     //Qui porte le meme nom que notre paramètre de route 
     let findGame = games.find((game) => game.name === gameUrl);
 
-    // Cas dans lequel on ne trouve pas de bon jeu
-    if(!findGame) {
-        res.status(404).render("404");
-    }
+    // Cas dans lequel on ne trouve pas de bon jeu (ici comentté car middleware plus bas)
+    // if(!findGame) {
+    //     res.status(404).render("404");
+    // }
 
     // On fourni ici le bon jeu en data à notre fichier
     // revient a faire locals.game = findGame
@@ -56,6 +68,15 @@ app.get("/game/:nomDuJeu", (req, res) => {
     // Autre méthode pour afficher directement la bonne page sans passer par une page game.ejs
     //res.render(findGame.name, {game: findGame})
 })
+
+/*==================================
+* Middleware pour la gestion des 404
+*=====================================*/
+app.use((req, res, next) => {
+    res.status(404).render("404");
+})
+
+
 
 /*============================
 * Lancement du serveur
