@@ -21,6 +21,11 @@ app.use(express.static("public"));
 app.locals.games = games;
 
 /*============================
+* Middleware pour traduire le body de la requête avec la méthode POST
+*==============================*/
+app.use(express.urlencoded({extended:true}))
+
+/*============================
 * Middleware de journalisation
 *==============================*/
 //Logger certaines infos comme la date, l'ip du client et l'url demandée

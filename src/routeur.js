@@ -16,4 +16,10 @@ router.get("/game/:nomDuJeu", controller.gamePage);
 router.get("/search", controller.searchPage);
 router.get("/search/results", controller.resultsPage);
 
+// La route login avec get, renvoie juste le fichier login.ejs
+router.get("/login", controller.loginPage);
+// longin ave post sert a gerer les requetes de type POST
+router.post("/login", controller.loginPostPage)
+
+
 module.exports = router
