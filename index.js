@@ -3,6 +3,7 @@
 *==============================*/
 const express = require("express");
 const games = require("./games.json");
+const router = require("./src/routeur")
 
 /*============================
 * Configuration d'express
@@ -22,6 +23,8 @@ app.locals.games = games;
 /*============================
 * Middleware de journalisation
 *==============================*/
+//Logger certaines infos comme la date, l'ip du client et l'url demandée
+//A chaque requête envoyée
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}  ${req.ip}] ${req.path}`);
     next();
@@ -32,10 +35,13 @@ app.use((req, res, next) => {
 /*============================
 * Définitions des routes
 *==============================*/
-app.get("/",(req, res) => {
-    // rendre la bonne vue index.ejs
-    res.render("index");
-});
+
+// On va indiquer à notre serveur, un routeur à utiliser
+app.use(router)
+
+// app.get("/",(req, res) => {                 // Ce que l'on aurait fait si on utilisait pas de routeur
+//     res.render("index");
+// });
 
 
 // app.get("/game/diceRoller", (req, res) => {
