@@ -18,6 +18,7 @@
       <nav>
         <ul>
           <li><a href="/">Accueil</a></li>
+          <li><a href="/search">Recherche</a></li>
           <% for (let game of games) {%>
             <li><a href="/game/<%= game.name %>"><%= game.title %></a></li>
           <%}%>

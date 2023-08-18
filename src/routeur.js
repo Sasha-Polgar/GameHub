@@ -13,5 +13,7 @@ const controller = require("./controller")
 //router.get(path,chose à faire quand on requete cette adresse)
 router.get("/", controller.homePage);
 router.get("/game/:nomDuJeu", controller.gamePage);
+router.get("/search", controller.searchPage);
+router.get("/search/results", controller.resultsPage);
 
 module.exports = router
