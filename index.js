@@ -3,7 +3,6 @@
 *==============================*/
 const express = require("express");
 const games = require("./games.json");
-const os = require("os");
 
 /*============================
 * Configuration d'express
@@ -23,11 +22,10 @@ app.locals.games = games;
 /*============================
 * Middleware de journalisation
 *==============================*/
-// app.use((req, res, next) => {
-//     const ip = os.networkInterfaces();
-//     console.log(ip, req.url)
-//     next()
-// })
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}  ${req.ip}] ${req.path}`);
+    next();
+})
 
 
 
