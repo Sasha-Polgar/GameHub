@@ -39,12 +39,12 @@ app.use((req, res, next) => {
 // On va indiquer à notre serveur, un routeur à utiliser
 app.use(router)
 
-// app.get("/",(req, res) => {                 // Ce que l'on aurait fait si on utilisait pas de routeur
+// app.get("/",(req, res) => {                 // Ce que l'on aurait fait si on n'utilisait pas de routeur
 //     res.render("index");
 // });
 
 
-// app.get("/game/diceRoller", (req, res) => {
+// app.get("/game/diceRoller", (req, res) => {      // route paramétrées en dur
 //     res.render("diceRoller", {css:true});
 // });
 
@@ -53,25 +53,25 @@ app.use(router)
 // });
 
 
-app.get("/game/:nomDuJeu", (req, res) => {
-    // Récupération du paramètre
-    let gameUrl = req.params.nomDuJeu;
-    //On veut récupérer le jeu depuis notre tableau games
-    //Qui porte le meme nom que notre paramètre de route 
-    let findGame = games.find((game) => game.name === gameUrl);
+// app.get("/game/:nomDuJeu", (req, res) => {                         // Ce que l'on aurait fait si on n'utilisait pas de routeur
+//     // Récupération du paramètre
+//     let gameUrl = req.params.nomDuJeu;
+//     //On veut récupérer le jeu depuis notre tableau games
+//     //Qui porte le meme nom que notre paramètre de route 
+//     let findGame = games.find((game) => game.name === gameUrl);
 
-    // Cas dans lequel on ne trouve pas de bon jeu (ici comentté car middleware plus bas)
-    // if(!findGame) {
-    //     res.status(404).render("404");
-    // }
+//     // Cas dans lequel on ne trouve pas de bon jeu (ici comentté car middleware plus bas)
+//     // if(!findGame) {
+//     //     res.status(404).render("404");
+//     // }
 
-    // On fourni ici le bon jeu en data à notre fichier
-    // revient a faire locals.game = findGame
-    res.render("game", {game:findGame})
+//     // On fourni ici le bon jeu en data à notre fichier
+//     // revient a faire locals.game = findGame
+//     res.render("game", {game:findGame})
 
-    // Autre méthode pour afficher directement la bonne page sans passer par une page game.ejs
-    //res.render(findGame.name, {game: findGame})
-})
+//     // Autre méthode pour afficher directement la bonne page sans passer par une page game.ejs
+//     //res.render(findGame.name, {game: findGame})
+// })
 
 /*==================================
 * Middleware pour la gestion des 404
